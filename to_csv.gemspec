@@ -5,6 +5,8 @@ Gem::Specification.new do |s|
   s.name          = "to_csv"
   s.version       = "0.0.1"
   s.authors       = ['Ary Djmal']
+  s.summary       = 'to_csv-#{s.version}'
+  s.description   = 'Easily convert arrays to csv.'
 
   s.platform      = Gem::Platform::RUBY
   s.required_ruby_version = '>= 1.9'
