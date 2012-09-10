@@ -28,6 +28,10 @@ class ToCsvTest < Test::Unit::TestCase
     assert_equal( "Name\nAry\nNati\n", @users.to_csv(:only => :name) )
   end
 
+  def test_with_columns
+    assert_equal( "Id,Name,Age\n1,Ary,25\n2,Nati,22\n", @users.to_csv(:columns => [:id, :name, :age]) )
+  end
+
   def test_with_empty_only
     assert_equal( "", @users.to_csv(:only => "") )
   end

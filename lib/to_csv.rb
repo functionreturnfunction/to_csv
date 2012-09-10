@@ -3,12 +3,16 @@ class Array
     return '' if self.empty?
 
     klass      = self.first.class
-    attributes = self.first.attributes.keys.sort.map(&:to_sym)
 
-    if options[:only]
-      columns = Array(options[:only]) & attributes
+    if options[:columns]
+      columns = Array(options[:columns])
     else
-      columns = attributes - Array(options[:except])
+      attributes = self.first.attributes.keys.sort.map(&:to_sym)
+      if options[:only]
+        columns = Array(options[:only]) & attributes
+      else
+        columns = attributes - Array(options[:except])
+      end
     end
 
     columns += Array(options[:methods])
